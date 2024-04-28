@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="projecteuler.problem2.SolutionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-04-28T15:35:37" hostname="jonathon-thinkpad" time="0.031">
-  <properties/>
-  <testcase name="shouldBe10forNumbersBelow10()" classname="projecteuler.problem2.SolutionTest" time="0.026"/>
-  <testcase name="shouldBe4613732forNumbersBelow4000000()" classname="projecteuler.problem2.SolutionTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
