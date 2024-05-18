@@ -31,4 +31,27 @@ class SolutionTest {
         int result = solution.maximumSafenessFactor(grid);
         Assertions.assertEquals(1, result);
     }
+
+    @Test
+    void shouldBe2for3by3gridWithThief() {
+        List<List<Integer>> grid = List.of(
+                List.of(0, 0, 1),
+                List.of(0, 0, 0),
+                List.of(0, 0, 0)
+        );
+        int result = solution.maximumSafenessFactor(grid);
+        Assertions.assertEquals(2, result);
+    }
+
+    @Test
+    void shouldBe2forThirdLeetcodeExample() {
+        List<List<Integer>> grid = List.of(
+                List.of(0, 0, 0, 1),
+                List.of(0, 0, 0, 0),
+                List.of(0, 0, 0, 0),
+                List.of(1, 0, 0, 0)
+        );
+        int result = solution.maximumSafenessFactor(grid);
+        Assertions.assertEquals(2, result);
+    }
 }
