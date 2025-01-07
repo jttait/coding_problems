@@ -202,7 +202,7 @@ class PartTwoTest {
 
     @Test
     void shouldBeXforAdventOfCodeProblem() throws Exception {
-        List<List<Integer>> reports = loadFileToListOfStrings("adventofcode_year2024_problem2.txt");
+        List<List<Integer>> reports = loadFileToListOfStrings("adventofcode/year2024/adventofcode_year2024_problem2.txt");
         int result = 0;
         for (List<Integer> levels : reports) {
             if (partTwo.areLevelsSafeWithProblemDampener(levels)) {

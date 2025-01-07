@@ -44,7 +44,7 @@ class PartOneTest {
 
     @Test
     void shouldBe168539636forAdventOfCodeProblem() throws Exception {
-        String program = testUtils.loadFileToListOfStrings("adventofcode_year2024_problem3.txt");
+        String program = testUtils.loadFileToListOfStrings("adventofcode/year2024/adventofcode_year2024_problem3.txt");
         int result = partOne.parseSection(program);
         Assertions.assertEquals(168539636, result);
     }
