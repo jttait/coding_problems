@@ -34,7 +34,7 @@ class PartOneTest {
 
     @Test
     void shouldBe143forAdventOfCodeExample() throws Exception {
-        TestInput testInput = testUtils.loadFile("adventofcode_year2024_problem5_example.txt");
+        TestInput testInput = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem5_example.txt");
         int result = 0;
         for (List<Integer> section : testInput.sections()) {
             if (partOne.isInValidOrder(testInput.pageOrderings(), section)) {
@@ -46,7 +46,7 @@ class PartOneTest {
 
     @Test
     void shouldBeXforAdventOfCodeInput() throws Exception {
-        TestInput testInput = testUtils.loadFile("adventofcode_year2024_problem5_input.txt");
+        TestInput testInput = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem5_input.txt");
         int result = 0;
         for (List<Integer> section : testInput.sections()) {
             if (partOne.isInValidOrder(testInput.pageOrderings(), section)) {

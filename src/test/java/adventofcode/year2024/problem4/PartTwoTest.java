@@ -40,7 +40,7 @@ class PartTwoTest {
 
     @Test
     void shouldBeXforAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode_year2024_problem4.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem4.txt");
         int result = partTwo.findXmas(grid);
         Assertions.assertEquals(1910, result);
     }
