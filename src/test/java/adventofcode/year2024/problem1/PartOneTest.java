@@ -53,7 +53,7 @@ class PartOneTest {
 
     @Test
     void shouldBe2264607forAdventOfCodeProblem() throws Exception {
-        List<List<Integer>> lists = loadFileToListOfStrings("adventofcode/year2024/adventofcode_year2024_problem1.txt");
+        List<List<Integer>> lists = loadFileToListOfStrings("adventofcode/year2024/problem1.txt");
         List<Integer> left = lists.get(0);
         List<Integer> right = lists.get(1);
         int result = this.partOne.totalDistance(left, right);

@@ -64,7 +64,7 @@ class PartOneTest {
 
     @Test
     void shouldBe502forAdventOfCodeProblem() throws Exception {
-        List<List<Integer>> reports = loadFileToListOfStrings("adventofcode/year2024/adventofcode_year2024_problem2.txt");
+        List<List<Integer>> reports = loadFileToListOfStrings("adventofcode/year2024/problem2.txt");
         int result = 0;
         for (List<Integer> levels : reports) {
             if (partOne.areLevelsSafe(levels)) {
