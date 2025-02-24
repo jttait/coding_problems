@@ -73,14 +73,14 @@ class PartTwoTest {
 
     @Test
     void shouldBe11387forAdventOfCodeExample() throws Exception {
-        List<Equation> equations = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem7_example.txt");
+        List<Equation> equations = testUtils.loadFile("adventofcode/year2024/problem7_example.txt");
         BigInteger result = partTwo.totalCalibrationResult(equations);
         Assertions.assertEquals(BigInteger.valueOf(11387), result);
     }
 
     @Test
     void shouldBe11387forAdventOfCodeInput() throws Exception {
-        List<Equation> equations = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem7_input.txt");
+        List<Equation> equations = testUtils.loadFile("adventofcode/year2024/problem7_input.txt");
         BigInteger result = partTwo.totalCalibrationResult(equations);
         Assertions.assertEquals(BigInteger.valueOf(149956401519484L), result);
     }

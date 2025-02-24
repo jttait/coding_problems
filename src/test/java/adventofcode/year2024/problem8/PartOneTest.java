@@ -93,35 +93,35 @@ class PartOneTest {
 
     @Test
     void shouldBe2forAdventOfCodeExample1() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part1_example1.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part1_example1.txt");
         int result = partOne.countAntinodes(grid);
         Assertions.assertEquals(2, result);
     }
 
     @Test
     void shouldBe2forAdventOfCodeExample2() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part1_example2.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part1_example2.txt");
         int result = partOne.countAntinodes(grid);
         Assertions.assertEquals(4, result);
     }
 
     @Test
     void shouldBe3forAdventOfCodeExample3() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part1_example3.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part1_example3.txt");
         int result = partOne.countAntinodes(grid);
         Assertions.assertEquals(4, result);
     }
 
     @Test
     void shouldBe3forAdventOfCodeExample4() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part1_example4.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part1_example4.txt");
         int result = partOne.countAntinodes(grid);
         Assertions.assertEquals(14, result);
     }
 
     @Test
     void shouldBe273forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_input.txt");
         int result = partOne.countAntinodes(grid);
         Assertions.assertEquals(273, result);
     }
