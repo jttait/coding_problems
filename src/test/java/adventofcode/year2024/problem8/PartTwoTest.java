@@ -27,21 +27,21 @@ class PartTwoTest {
 
     @Test
     void shouldBe9ForTwoAdventOfCodeExample1() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part2_example1.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part2_example1.txt");
         int result = partTwo.countAntinodes(grid);
         Assertions.assertEquals(9, result);
     }
 
     @Test
     void shouldBe9ForTwoAdventOfCodeExample2() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_part2_example2.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_part2_example2.txt");
         int result = partTwo.countAntinodes(grid);
         Assertions.assertEquals(34, result);
     }
 
     @Test
     void shouldBe9ForTwoAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/adventofcode_year2024_problem8_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_input.txt");
         int result = partTwo.countAntinodes(grid);
         Assertions.assertEquals(1017, result);
     }
