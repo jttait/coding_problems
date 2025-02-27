@@ -1,3 +1,3 @@
-package adventofcode.year2024.problem10;
+package adventofcode.year2024.common;
 
 public record Cell(int row, int col) {}

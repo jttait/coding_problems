@@ -1,9 +1,11 @@
 package adventofcode.year2024.problem10;
 
+import adventofcode.year2024.common.Cell;
+
 import java.util.List;
 import java.util.Set;
 
-import static adventofcode.year2024.problem10.Utils.inBounds;
+import static adventofcode.year2024.common.Utils.inBounds;
 
 public class PartTwo {
     private final List<List<Integer>> grid;
