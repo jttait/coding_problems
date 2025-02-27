@@ -1,5 +1,7 @@
 package adventofcode.year2024.problem10;
 
+import adventofcode.year2024.common.Cell;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,9 +17,5 @@ public class Utils {
             }
         }
         return result;
-    }
-
-    static boolean inBounds(int row, int col, List<List<Integer>> grid) {
-        return row >= 0 && col >= 0 && row < grid.size() && col < grid.get(0).size();
     }
 }
