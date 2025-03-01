@@ -2,3 +2,4 @@ build/
 gradle/
 .idea/
 .gradle/
+src/test/java/adventofcode/year2024/problem14/outputs/**
