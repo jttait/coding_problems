@@ -28,27 +28,27 @@ public class PartTwo {
     }
 
     private int dfs(Cell cell) {
-        int row = cell.row();
-        int col = cell.col();
-        if (!inBounds(row, col, grid)) {
+        int x = cell.x();
+        int y = cell.y();
+        if (!inBounds(x, y, grid)) {
             return 0;
         }
-        int val = grid.get(row).get(col);
+        int val = grid.get(y).get(x);
         if (val == 9) {
             return 1;
         }
         int result = 0;
-        if (inBounds(row+1, col, grid) && grid.get(row+1).get(col) == val + 1) {
-            result += dfs(new Cell(row + 1, col));
+        if (inBounds(x + 1, y, grid) && grid.get(y).get(x + 1) == val + 1) {
+            result += dfs(new Cell(x + 1, y));
         }
-        if (inBounds(row-1, col, grid) && grid.get(row-1).get(col) == val + 1) {
-            result += dfs(new Cell(row - 1, col));
+        if (inBounds(x - 1, y, grid) && grid.get(y).get(x - 1) == val + 1) {
+            result += dfs(new Cell(x - 1, y));
         }
-        if (inBounds(row, col+1, grid) && grid.get(row).get(col+1) == val + 1) {
-            result += dfs(new Cell(row, col + 1));
+        if (inBounds(x, y + 1, grid) && grid.get(y + 1).get(x) == val + 1) {
+            result += dfs(new Cell(x, y + 1));
         }
-        if (inBounds(row, col-1, grid) && grid.get(row).get(col-1) == val + 1) {
-            result += dfs(new Cell(row, col - 1));
+        if (inBounds(x, y - 1, grid) && grid.get(y - 1).get(x) == val + 1) {
+            result += dfs(new Cell(x, y - 1));
         }
         return result;
     }

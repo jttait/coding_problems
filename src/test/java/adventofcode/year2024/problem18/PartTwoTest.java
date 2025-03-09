@@ -25,8 +25,8 @@ class PartTwoTest {
         PartTwo partTwo = new PartTwo(3, 3, fallingBytes);
         Cell result = partTwo.findFirstBlockingCell();
         Cell expected = new Cell(2, 1);
-        Assertions.assertEquals(expected.col(), result.col());
-        Assertions.assertEquals(expected.row(), result.row());
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
     }
 
     @Test
@@ -35,8 +35,8 @@ class PartTwoTest {
         PartTwo partTwo = new PartTwo(7, 7, fallingBytes);
         Cell result = partTwo.findFirstBlockingCell();
         Cell expected = new Cell(1, 6);
-        Assertions.assertEquals(expected.col(), result.col());
-        Assertions.assertEquals(expected.row(), result.row());
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
     }
 
     @Test
@@ -45,7 +45,7 @@ class PartTwoTest {
         PartTwo partTwo = new PartTwo(71, 71, fallingBytes);
         Cell result = partTwo.findFirstBlockingCell();
         Cell expected = new Cell(46, 16);
-        Assertions.assertEquals(expected.col(), result.col());
-        Assertions.assertEquals(expected.row(), result.row());
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
     }
 }

@@ -32,7 +32,6 @@ public class PartTwo {
                 g2d.drawRect(x, y, 1, 1);
                 File file = new File("src/test/java/adventofcode/year2024/problem14/outputs/" + iteration + ".png");
                 ImageIO.write(bufferedImage, "png", file);
-
             }
             iteration++;
         }

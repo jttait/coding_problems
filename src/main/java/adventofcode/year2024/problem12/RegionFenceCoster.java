@@ -35,38 +35,38 @@ public class RegionFenceCoster {
         return this.visited;
     }
 
-    public void calculate(int row, int col) {
-        this.character = this.grid.get(row).get(col);
-        recursion(row, col);
+    public void calculate(int x, int y) {
+        this.character = this.grid.get(y).get(x);
+        recursion(x, y);
     }
 
-    private void recursion(int row, int col) {
-        if (!inBounds(row, col, this.grid)) {
+    private void recursion(int x, int y) {
+        if (!inBounds(x, y, this.grid)) {
             return;
         }
-        if (this.grid.get(row).get(col) != this.character) {
+        if (this.grid.get(y).get(x) != this.character) {
             return;
         }
-        Cell cell = new Cell(row, col);
+        Cell cell = new Cell(x, y);
         if (this.visited.contains(cell)) {
             return;
         }
         this.visited.add(cell);
         int adjacentCells = 0;
-        if (inBounds(row + 1, col, this.grid) && this.grid.get(row + 1).get(col) == this.character) {
-            recursion(row + 1, col);
+        if (inBounds(x + 1, y, this.grid) && this.grid.get(y).get(x + 1) == this.character) {
+            recursion(x + 1, y);
             adjacentCells++;
         }
-        if (inBounds(row - 1, col, this.grid) && this.grid.get(row - 1).get(col) == this.character) {
-            recursion(row - 1, col);
+        if (inBounds(x - 1, y, this.grid) && this.grid.get(y).get(x - 1) == this.character) {
+            recursion(x - 1, y);
             adjacentCells++;
         }
-        if (inBounds(row, col + 1, this.grid) && this.grid.get(row).get(col + 1) == this.character) {
-            recursion(row, col + 1);
+        if (inBounds(x, y + 1, this.grid) && this.grid.get(y + 1).get(x) == this.character) {
+            recursion(x, y + 1);
             adjacentCells++;
         }
-        if (inBounds(row, col - 1, this.grid) && this.grid.get(row).get(col - 1) == this.character) {
-            recursion(row, col - 1);
+        if (inBounds(x, y - 1, this.grid) && this.grid.get(y - 1).get(x) == this.character) {
+            recursion(x, y - 1);
             adjacentCells++;
         }
         this.area++;
