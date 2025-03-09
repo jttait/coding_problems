@@ -1,5 +1,7 @@
 package adventofcode.year2024.problem16;
 
+import adventofcode.year2024.common.Position;
+
 import java.util.*;
 
 public class PartTwo {
