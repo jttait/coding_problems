@@ -1,4 +1,4 @@
-package adventofcode.year2024.problem06;
+package adventofcode.year2024.common;
 
 public enum Heading {
     NORTH,
