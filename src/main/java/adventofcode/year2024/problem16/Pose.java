@@ -1,5 +1,6 @@
 package adventofcode.year2024.problem16;
 
+import adventofcode.year2024.common.Heading;
 import adventofcode.year2024.common.Position;
 
 public record Pose(Position position, Heading heading) {
