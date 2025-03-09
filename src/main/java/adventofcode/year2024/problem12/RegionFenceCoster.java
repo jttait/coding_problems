@@ -1,6 +1,6 @@
 package adventofcode.year2024.problem12;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +13,7 @@ public class RegionFenceCoster {
     private int perimeter;
     private final List<List<Character>> grid;
     private Character character;
-    private Set<Cell> visited;
+    private Set<Position> visited;
 
     public RegionFenceCoster(List<List<Character>> grid) {
         this.area = 0;
@@ -31,7 +31,7 @@ public class RegionFenceCoster {
         return this.perimeter;
     }
 
-    public Set<Cell> getVisited() {
+    public Set<Position> getVisited() {
         return this.visited;
     }
 
@@ -47,11 +47,11 @@ public class RegionFenceCoster {
         if (this.grid.get(y).get(x) != this.character) {
             return;
         }
-        Cell cell = new Cell(x, y);
-        if (this.visited.contains(cell)) {
+        Position position = new Position(x, y);
+        if (this.visited.contains(position)) {
             return;
         }
-        this.visited.add(cell);
+        this.visited.add(position);
         int adjacentCells = 0;
         if (inBounds(x + 1, y, this.grid) && this.grid.get(y).get(x + 1) == this.character) {
             recursion(x + 1, y);

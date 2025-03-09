@@ -1,13 +1,13 @@
 package adventofcode.year2024.problem12;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class PartOne {
-    Set<Cell> visited;
+    Set<Position> visited;
     List<List<Character>> grid;
 
     public PartOne(List<List<Character>> grid) {
@@ -19,7 +19,7 @@ public class PartOne {
         int result = 0;
         for (int y = 0; y < grid.size(); y++) {
             for (int x = 0; x < grid.get(0).size(); x++) {
-                if (!visited.contains(new Cell(x, y))) {
+                if (!visited.contains(new Position(x, y))) {
                     result += calculateRegionFencingCost(x, y);
                 }
             }

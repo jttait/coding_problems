@@ -1,6 +1,6 @@
 package adventofcode.year2024.problem12;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +13,7 @@ public class RegionFenceCosterWithBulkDiscount {
     private int edges;
     private final List<List<Character>> grid;
     private Character character;
-    private Set<Cell> visited;
+    private Set<Position> visited;
 
     public RegionFenceCosterWithBulkDiscount(List<List<Character>> grid) {
         this.area = 0;
@@ -31,44 +31,44 @@ public class RegionFenceCosterWithBulkDiscount {
         return this.edges;
     }
 
-    public Set<Cell> getVisited() {
+    public Set<Position> getVisited() {
         return this.visited;
     }
 
     public void calculate(int x, int y) {
         this.character = this.grid.get(y).get(x);
         recursion(x, y);
-        Set<Cell> above = new HashSet<>();
-        Set<Cell> below = new HashSet<>();
-        Set<Cell> left = new HashSet<>();
-        Set<Cell> right = new HashSet<>();
+        Set<Position> above = new HashSet<>();
+        Set<Position> below = new HashSet<>();
+        Set<Position> left = new HashSet<>();
+        Set<Position> right = new HashSet<>();
         for (int y1 = 0; y1 < this.grid.size(); y1++) {
             for (int x1 = 0; x1 < this.grid.get(0).size(); x1++) {
-                Cell cell = new Cell(x1, y1);
-                if (this.visited.contains(cell)) {
+                Position position = new Position(x1, y1);
+                if (this.visited.contains(position)) {
                     if (cellAboveDoesNotContainCharacter(x1, y1)) {
                         if (cellLeftIsNotInSet(x1, y1, above)) {
                             this.edges++;
                         }
-                        above.add(cell);
+                        above.add(position);
                     }
                     if (cellBelowDoesNotContainCharacter(x1, y1)) {
                         if (cellLeftIsNotInSet(x1, y1, below)) {
                             this.edges++;
                         }
-                        below.add(cell);
+                        below.add(position);
                     }
                     if (cellLeftDoesNotContainCharacter(x1, y1)) {
                         if (cellAboveIsNotInSet(x1, y1, left)) {
                             this.edges++;
                         }
-                        left.add(cell);
+                        left.add(position);
                     }
                     if (cellRightDoesNotContainCharacter(x1, y1)) {
                         if (cellAboveIsNotInSet(x1, y1, right)) {
                             this.edges++;
                         }
-                        right.add(cell);
+                        right.add(position);
                     }
                 }
             }
@@ -91,12 +91,12 @@ public class RegionFenceCosterWithBulkDiscount {
         return !inBounds(x + 1, y, this.grid) || this.grid.get(y).get(x + 1) != this.character;
     }
 
-    private boolean cellLeftIsNotInSet(int x, int y, Set<Cell> set) {
-        return !set.contains(new Cell(x - 1, y));
+    private boolean cellLeftIsNotInSet(int x, int y, Set<Position> set) {
+        return !set.contains(new Position(x - 1, y));
     }
 
-    private boolean cellAboveIsNotInSet(int x, int y, Set<Cell> set) {
-        return !set.contains(new Cell(x, y - 1));
+    private boolean cellAboveIsNotInSet(int x, int y, Set<Position> set) {
+        return !set.contains(new Position(x, y - 1));
     }
 
     private void recursion(int x, int y) {
@@ -106,11 +106,11 @@ public class RegionFenceCosterWithBulkDiscount {
         if (this.grid.get(y).get(x) != this.character) {
             return;
         }
-        Cell cell = new Cell(x, y);
-        if (this.visited.contains(cell)) {
+        Position position = new Position(x, y);
+        if (this.visited.contains(position)) {
             return;
         }
-        this.visited.add(cell);
+        this.visited.add(position);
         if (inBounds(x + 1, y, this.grid) && this.grid.get(y).get(x + 1) == this.character) {
             recursion(x + 1, y);
         }

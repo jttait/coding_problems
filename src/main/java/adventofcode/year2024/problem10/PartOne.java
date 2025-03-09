@@ -1,6 +1,6 @@
 package adventofcode.year2024.problem10;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 
 import java.util.HashSet;
 import java.util.List;
@@ -10,7 +10,7 @@ import static adventofcode.year2024.common.Utils.inBounds;
 
 public class PartOne {
     private final List<List<Integer>> grid;
-    private Set<Cell> found;
+    private Set<Position> found;
 
     public PartOne(List<List<Integer>> grid) {
         this.grid = grid;
@@ -18,9 +18,9 @@ public class PartOne {
     }
 
     public int sumTrailheadScores() {
-        Set<Cell> trailheads = Utils.findTrailheads(grid);
+        Set<Position> trailheads = Utils.findTrailheads(grid);
         int result = 0;
-        for (Cell trailhead : trailheads) {
+        for (Position trailhead : trailheads) {
             this.found = new HashSet<>();
             scoreTrailhead(trailhead);
             result += this.found.size();
@@ -29,31 +29,31 @@ public class PartOne {
         return result;
     }
 
-    private void scoreTrailhead(Cell cell) {
-        dfs(cell);
+    private void scoreTrailhead(Position position) {
+        dfs(position);
     }
 
-    private void dfs(Cell cell) {
-        int x = cell.x();
-        int y = cell.y();
+    private void dfs(Position position) {
+        int x = position.x();
+        int y = position.y();
         if (!inBounds(x, y, grid)) {
             return;
         }
         int val = grid.get(y).get(x);
         if (val == 9) {
-            this.found.add(new Cell(x, y));
+            this.found.add(new Position(x, y));
         }
         if (inBounds(x + 1, y, grid) && grid.get(y).get(x + 1) == val + 1) {
-            dfs(new Cell(x + 1, y));
+            dfs(new Position(x + 1, y));
         }
         if (inBounds(x - 1, y, grid) && grid.get(y).get(x - 1) == val + 1) {
-            dfs(new Cell(x - 1, y));
+            dfs(new Position(x - 1, y));
         }
         if (inBounds(x, y + 1, grid) && grid.get(y + 1).get(x) == val + 1) {
-            dfs(new Cell(x, y + 1));
+            dfs(new Position(x, y + 1));
         }
         if (inBounds(x, y - 1, grid) && grid.get(y - 1).get(x) == val + 1) {
-            dfs(new Cell(x, y - 1));
+            dfs(new Position(x, y - 1));
         }
     }
 }

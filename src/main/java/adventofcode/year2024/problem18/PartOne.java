@@ -1,6 +1,6 @@
 package adventofcode.year2024.problem18;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 import adventofcode.year2024.common.DjikstraState;
 
 import java.util.*;
@@ -8,10 +8,10 @@ import java.util.*;
 public class PartOne {
     private final int width;
     private final int height;
-    private final List<Cell> fallingBytes;
-    private final Set<Cell> corruptedPositions;
+    private final List<Position> fallingBytes;
+    private final Set<Position> corruptedPositions;
 
-    public PartOne(int width, int height, List<Cell> fallingBytes) {
+    public PartOne(int width, int height, List<Position> fallingBytes) {
         this.width = width;
         this.height = height;
         this.fallingBytes = fallingBytes;
@@ -28,7 +28,7 @@ public class PartOne {
     }
 
     public int findShortestPath() {
-        Set<Cell> visited = new HashSet<>();
+        Set<Position> visited = new HashSet<>();
         PriorityQueue<DjikstraState> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(DjikstraState::cost));
         priorityQueue.add(new DjikstraState(0, 0, 0));
         while (!priorityQueue.isEmpty()) {
@@ -36,14 +36,14 @@ public class PartOne {
             int x = djikstraState.x();
             int y = djikstraState.y();
             int cost = djikstraState.cost();
-            Cell cell = new Cell(y, x);
+            Position position = new Position(y, x);
             if (x < 0 || y < 0 || x > width - 1 || y > height - 1) {
                 continue;
             }
-            if (visited.contains(cell)) {
+            if (visited.contains(position)) {
                 continue;
             }
-            if (this.corruptedPositions.contains(cell)) {
+            if (this.corruptedPositions.contains(position)) {
                 continue;
             }
             if (y == this.height - 1 && x == this.width - 1) {
@@ -53,7 +53,7 @@ public class PartOne {
             priorityQueue.add(new DjikstraState(x - 1, y, cost + 1));
             priorityQueue.add(new DjikstraState(x, y + 1, cost + 1));
             priorityQueue.add(new DjikstraState(x, y - 1, cost + 1));
-            visited.add(cell);
+            visited.add(position);
         }
         return -1;
     }

@@ -1,6 +1,6 @@
 package adventofcode.year2024.problem10;
 
-import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.Position;
 
 import java.util.List;
 import java.util.Set;
@@ -15,21 +15,21 @@ public class PartTwo {
     }
 
     public int sumTrailheadScores() {
-        Set<Cell> trailheads = Utils.findTrailheads(grid);
+        Set<Position> trailheads = Utils.findTrailheads(grid);
         int result = 0;
-        for (Cell trailhead : trailheads) {
+        for (Position trailhead : trailheads) {
             result += scoreTrailhead(trailhead);
         }
         return result;
     }
 
-    private int scoreTrailhead(Cell cell) {
-        return dfs(cell);
+    private int scoreTrailhead(Position position) {
+        return dfs(position);
     }
 
-    private int dfs(Cell cell) {
-        int x = cell.x();
-        int y = cell.y();
+    private int dfs(Position position) {
+        int x = position.x();
+        int y = position.y();
         if (!inBounds(x, y, grid)) {
             return 0;
         }
@@ -39,16 +39,16 @@ public class PartTwo {
         }
         int result = 0;
         if (inBounds(x + 1, y, grid) && grid.get(y).get(x + 1) == val + 1) {
-            result += dfs(new Cell(x + 1, y));
+            result += dfs(new Position(x + 1, y));
         }
         if (inBounds(x - 1, y, grid) && grid.get(y).get(x - 1) == val + 1) {
-            result += dfs(new Cell(x - 1, y));
+            result += dfs(new Position(x - 1, y));
         }
         if (inBounds(x, y + 1, grid) && grid.get(y + 1).get(x) == val + 1) {
-            result += dfs(new Cell(x, y + 1));
+            result += dfs(new Position(x, y + 1));
         }
         if (inBounds(x, y - 1, grid) && grid.get(y - 1).get(x) == val + 1) {
-            result += dfs(new Cell(x, y - 1));
+            result += dfs(new Position(x, y - 1));
         }
         return result;
     }

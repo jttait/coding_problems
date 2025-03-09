@@ -1,7 +1,5 @@
 package adventofcode.year2024.problem19;
 
-import adventofcode.year2024.common.Cell;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,8 +7,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TestUtils {
     public List<String> loadAvailableTowelsFromFile(String filename) throws Exception {
