@@ -1,5 +1,7 @@
 package adventofcode.year2024.problem06;
 
+import adventofcode.year2024.common.Pose;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
