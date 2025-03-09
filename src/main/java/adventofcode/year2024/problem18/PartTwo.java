@@ -1,6 +1,7 @@
 package adventofcode.year2024.problem18;
 
 import adventofcode.year2024.common.Cell;
+import adventofcode.year2024.common.DjikstraState;
 
 import java.util.*;
 
