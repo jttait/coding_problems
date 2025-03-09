@@ -17,19 +17,19 @@ public class PartOne {
 
     public int calculateFencingCost() {
         int result = 0;
-        for (int row = 0; row < grid.size(); row++) {
-            for (int col = 0; col < grid.get(0).size(); col++) {
-                if (!visited.contains(new Cell(row, col))) {
-                    result += calculateRegionFencingCost(row, col);
+        for (int y = 0; y < grid.size(); y++) {
+            for (int x = 0; x < grid.get(0).size(); x++) {
+                if (!visited.contains(new Cell(x, y))) {
+                    result += calculateRegionFencingCost(x, y);
                 }
             }
         }
         return result;
     }
 
-    private int calculateRegionFencingCost(int row, int col) {
+    private int calculateRegionFencingCost(int x, int y) {
         RegionFenceCoster regionFenceCoster = new RegionFenceCoster(this.grid);
-        regionFenceCoster.calculate(row, col);
+        regionFenceCoster.calculate(x, y);
         this.visited.addAll(regionFenceCoster.getVisited());
         return regionFenceCoster.getArea() * regionFenceCoster.getPerimeter();
     }
