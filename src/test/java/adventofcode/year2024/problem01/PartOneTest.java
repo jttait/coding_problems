@@ -1,4 +1,4 @@
-package adventofcode.year2024.problem1;
+package adventofcode.year2024.problem01;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,62 +11,53 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-
-class PartTwoTest {
-    private PartTwo partTwo;
+class PartOneTest {
+    private PartOne partOne;
 
     @BeforeEach
     void setUp() {
-        this.partTwo = new PartTwo();
+        this.partOne = new PartOne();
     }
 
     @Test
-    void shouldBe1forLeftOf1andRightOf1() {
+    void shouldBe0for1and1() {
         List<Integer> left = List.of(1);
         List<Integer> right = List.of(1);
-        int result = partTwo.similarityScore(left, right);
-        Assertions.assertEquals(1, result);
-    }
-
-    @Test
-    void shouldBe4forLeftOf2andRightOf2() {
-        List<Integer> left = List.of(2);
-        List<Integer> right = List.of(2);
-        int result = partTwo.similarityScore(left, right);
-        Assertions.assertEquals(2, result);
-    }
-
-    @Test
-    void shouldBe0forLeftOf1andRightOf2() {
-        List<Integer> left = List.of(1);
-        List<Integer> right = List.of(2);
-        int result = partTwo.similarityScore(left, right);
+        int result = this.partOne.totalDistance(left, right);
         Assertions.assertEquals(0, result);
     }
 
     @Test
-    void shouldBe27forLeftOf3and3and3andRightOf3and3and3() {
-        List<Integer> left = List.of(3, 3, 3);
-        List<Integer> right = List.of(3, 3, 3);
-        int result = partTwo.similarityScore(left, right);
-        Assertions.assertEquals(27, result);
+    void shouldBe1for1and2() {
+        List<Integer> left = List.of(1);
+        List<Integer> right = List.of(2);
+        int result = this.partOne.totalDistance(left, right);
+        Assertions.assertEquals(1, result);
     }
 
     @Test
-    void shouldBe27forAdventOfCodeWorkedExample() {
-        List<Integer> left = List.of(3, 4, 2, 1, 3, 3);
-        List<Integer> right = List.of(4, 3, 5, 3, 9, 3);
-        int result = partTwo.similarityScore(left, right);
-        Assertions.assertEquals(31, result);
+    void shouldBe0forLeftOf1and2andRightOf1and2() {
+        List<Integer> left = List.of(1, 2);
+        List<Integer> right = List.of(1, 2);
+        int result = this.partOne.totalDistance(left, right);
+        Assertions.assertEquals(0, result);
     }
 
     @Test
-    void shouldBe19457120forAdventOfCodeProblem() throws Exception {
+    void shouldBe0forLeftOf1and2andRightOf2and1() {
+        List<Integer> left = List.of(1, 2);
+        List<Integer> right = List.of(2, 1);
+        int result = this.partOne.totalDistance(left, right);
+        Assertions.assertEquals(0, result);
+    }
+
+    @Test
+    void shouldBe2264607forAdventOfCodeProblem() throws Exception {
         List<List<Integer>> lists = loadFileToListOfStrings("adventofcode/year2024/problem1.txt");
         List<Integer> left = lists.get(0);
         List<Integer> right = lists.get(1);
-        int result = this.partTwo.similarityScore(left, right);
-        Assertions.assertEquals(19457120, result);
+        int result = this.partOne.totalDistance(left, right);
+        Assertions.assertEquals(2264607, result);
     }
 
     private List<List<Integer>> loadFileToListOfStrings(String filename) throws Exception {

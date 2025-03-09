@@ -1,4 +1,4 @@
-package adventofcode.year2024.problem1;
+package adventofcode.year2024.problem01;
 
 import java.util.ArrayList;
 import java.util.List;
