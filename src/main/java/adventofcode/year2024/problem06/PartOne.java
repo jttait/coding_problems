@@ -1,5 +1,7 @@
 package adventofcode.year2024.problem06;
 
+import adventofcode.year2024.common.Position;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
