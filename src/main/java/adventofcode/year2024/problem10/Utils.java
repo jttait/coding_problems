@@ -9,10 +9,10 @@ import java.util.Set;
 public class Utils {
     static Set<Cell> findTrailheads(List<List<Integer>> grid) {
         Set<Cell> result = new HashSet<>();
-        for (int row = 0; row < grid.size(); row++) {
-            for (int col = 0; col < grid.get(0).size(); col++) {
-                if (grid.get(row).get(col) == 0) {
-                    result.add(new Cell(row, col));
+        for (int y = 0; y < grid.size(); y++) {
+            for (int x = 0; x < grid.get(0).size(); x++) {
+                if (grid.get(y).get(x) == 0) {
+                    result.add(new Cell(x, y));
                 }
             }
         }

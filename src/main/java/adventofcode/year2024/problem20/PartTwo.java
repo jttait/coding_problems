@@ -1,5 +1,7 @@
 package adventofcode.year2024.problem20;
 
+import adventofcode.year2024.common.Cell;
+
 import java.util.*;
 
 public class PartTwo {

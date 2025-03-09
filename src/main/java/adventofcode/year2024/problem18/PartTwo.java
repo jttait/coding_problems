@@ -21,7 +21,7 @@ public class PartTwo {
             List<Cell> corruptedBytes = fallingBytes.subList(0, tick);
             int result = findShortestPath(corruptedBytes);
             if (result == -1) {
-                return new Cell(fallingBytes.get(tick-1).row(), fallingBytes.get(tick-1).col());
+                return new Cell(fallingBytes.get(tick-1).x(), fallingBytes.get(tick-1).y());
             }
         }
         return new Cell(-1, -1);

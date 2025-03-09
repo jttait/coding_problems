@@ -89,5 +89,4 @@ class PartTwoTest {
         int result = partTwo.sumTrailheadScores();
         Assertions.assertEquals(1340, result);
     }
-
 }
