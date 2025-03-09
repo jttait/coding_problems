@@ -1,16 +1,18 @@
 package adventofcode.year2024.problem08;
 
+import adventofcode.year2024.common.Position;
+
 import java.util.*;
 
 public class PartOne {
-    public int countAntinodes(List<List<Character>> grid) {
+    public int countAntiNodes(List<List<Character>> grid) {
         Map<Character, Set<Position>> antennas = new HashMap<>();
-        for (int row = 0; row < grid.size(); row++) {
-            for (int col = 0; col < grid.get(0).size(); col++) {
-                char c = grid.get(row).get(col);
+        for (int y = 0; y < grid.size(); y++) {
+            for (int x = 0; x < grid.get(0).size(); x++) {
+                char c = grid.get(y).get(x);
                 if (c != '.') {
                     antennas.putIfAbsent(c, new HashSet<>());
-                    antennas.get(c).add(new Position(row, col));
+                    antennas.get(c).add(new Position(x, y));
                 }
             }
         }
@@ -19,10 +21,10 @@ public class PartOne {
             for (Position antenna1 : antennas.get(antennaType)) {
                 for (Position antenna2 : antennas.get(antennaType)) {
                     if (antenna1 != antenna2) {
-                        int rowDiff = antenna1.row() - antenna2.row();
-                        int colDiff = antenna1.col() - antenna2.col();
-                        int newRow = antenna1.row() + rowDiff;
-                        int newCol = antenna1.col() + colDiff;
+                        int rowDiff = antenna1.y() - antenna2.y();
+                        int colDiff = antenna1.x() - antenna2.x();
+                        int newRow = antenna1.y() + rowDiff;
+                        int newCol = antenna1.x() + colDiff;
                         if (inBounds(newRow, newCol, grid)) {
                             result.add(new Position(newRow, newCol));
                         }
