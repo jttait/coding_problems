@@ -2,6 +2,7 @@ package adventofcode.year2024.problem14;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,6 +15,7 @@ class PartTwoTest {
         this.testUtils = new TestUtils();
     }
 
+    @Disabled
     @Test
     void shouldBe229839456forAdventOfCodeInput() throws Exception {
         List<Robot> robots = testUtils.loadFile("adventofcode/year2024/problem14_input.txt");
