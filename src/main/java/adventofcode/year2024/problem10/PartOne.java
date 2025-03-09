@@ -43,16 +43,16 @@ public class PartOne {
         if (val == 9) {
             this.found.add(new Cell(x, y));
         }
-        if (inBounds(x + 1, y, grid) && grid.get(y + 1).get(x) == val + 1) {
+        if (inBounds(x + 1, y, grid) && grid.get(y).get(x + 1) == val + 1) {
             dfs(new Cell(x + 1, y));
         }
-        if (inBounds(x - 1, y, grid) && grid.get(y - 1).get(x) == val + 1) {
+        if (inBounds(x - 1, y, grid) && grid.get(y).get(x - 1) == val + 1) {
             dfs(new Cell(x - 1, y));
         }
-        if (inBounds(x, y + 1, grid) && grid.get(y).get(x + 1) == val + 1) {
+        if (inBounds(x, y + 1, grid) && grid.get(y + 1).get(x) == val + 1) {
             dfs(new Cell(x, y + 1));
         }
-        if (inBounds(x, y - 1, grid) && grid.get(y).get(x - 1) == val + 1) {
+        if (inBounds(x, y - 1, grid) && grid.get(y - 1).get(x) == val + 1) {
             dfs(new Cell(x, y - 1));
         }
     }
