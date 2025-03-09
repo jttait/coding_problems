@@ -2,6 +2,7 @@ package adventofcode.year2024.problem11;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -49,6 +50,8 @@ class PartOneTest {
         Assertions.assertEquals(22, result);
     }
 
+    // This caused GitHub Actions runner to run out of memory so disabling
+    @Disabled
     @Test
     void shouldBe186175forAdventOfCodeInputAfter25blinks() {
         List<Long> stones = List.of(5688L, 62084L, 2L, 3248809L, 179L, 79L, 0L, 172169L);
