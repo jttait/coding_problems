@@ -16,14 +16,14 @@ public class PartTwo {
     public int possibleObstacles(List<List<Character>> grid) throws Exception {
         int result = 0;
         List<List<Character>> copyOfGrid = grid.stream().map(ArrayList::new).collect(Collectors.toList());
-        for (int obstacleRow = 0; obstacleRow < copyOfGrid.size(); obstacleRow++) {
-            for (int obstacleCol = 0; obstacleCol < copyOfGrid.get(0).size(); obstacleCol++) {
-                if (copyOfGrid.get(obstacleRow).get(obstacleCol) == '.') {
-                    copyOfGrid.get(obstacleRow).set(obstacleCol, '#');
+        for (int obstacleY = 0; obstacleY < copyOfGrid.size(); obstacleY++) {
+            for (int obstacleX = 0; obstacleX < copyOfGrid.get(0).size(); obstacleX++) {
+                if (copyOfGrid.get(obstacleY).get(obstacleX) == '.') {
+                    copyOfGrid.get(obstacleY).set(obstacleX, '#');
                     if (hasCycle(copyOfGrid)) {
                         result++;
                     }
-                    copyOfGrid.get(obstacleRow).set(obstacleCol, '.');
+                    copyOfGrid.get(obstacleY).set(obstacleX, '.');
                 }
             }
         }
