@@ -1,7 +1,7 @@
 name: Java Tests
 on: push
 jobs:
-  run_tests:
+  run_java_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
