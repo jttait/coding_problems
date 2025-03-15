@@ -22,6 +22,7 @@ public class Keypad2 {
     private final List<List<Character>> grid;
     private Keypad2 precedingKeypad;
     private final Map<String, Long> cache;
+    private final Map<String, List<List<Character>>> shortestPathsCache;
 
     public Keypad2(Grid grid) {
         if (grid == Grid.NUMERIC) {
@@ -31,81 +32,33 @@ public class Keypad2 {
         }
         this.precedingKeypad = null;
         this.cache = new HashMap<>();
+        this.shortestPathsCache = new HashMap<>();
     }
 
     public void setPrecedingKeypad(Keypad2 precedingKeypad) {
         this.precedingKeypad = precedingKeypad;
     }
 
-    public long lengthOfShortestPath(Character start, Character end) {
+    public long solve(char start, char end) {
         if (cache.containsKey(start + "," + end)) {
             return cache.get(start + "," + end);
         }
-        Position current = find(start);
-        PriorityQueue<DijkstraState2> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(DijkstraState2::cost));
-        priorityQueue.add(new DijkstraState2(current.x(), current.y(), 0, new HashSet<>(), 'A'));
-        while (!priorityQueue.isEmpty()) {
-            DijkstraState2 dijkstraState = priorityQueue.poll();
-            int x = dijkstraState.x();
-            int y = dijkstraState.y();
-            long cost = dijkstraState.cost();
-            Set<Position> visited = dijkstraState.visited();
-            char prev = dijkstraState.prev();
-            if (grid.get(y).get(x) == end) {
-                cost += ((precedingKeypad == null) ? 1 : precedingKeypad.lengthOfShortestPath(prev, 'A'));
-                cache.put(start + "," + end, cost);
-                return cost;
-            }
-            Position position = new Position(x, y);
-            if (visited.contains(position)) {
-                continue;
-            }
-            if (grid.get(y).get(x + 1) != '#') {
-                priorityQueue.add(
-                        new DijkstraState2(
-                                x + 1,
-                                y,
-                                (precedingKeypad == null) ? cost + 1 : cost + precedingKeypad.lengthOfShortestPath(prev, '>'),
-                                addToImmutableSet(visited, position),
-                                '>'
-                        )
-                );
-            }
-            if (grid.get(y).get(x - 1) != '#') {
-                priorityQueue.add(
-                        new DijkstraState2(
-                                x - 1,
-                                y,
-                                (precedingKeypad == null) ? cost + 1 : cost + precedingKeypad.lengthOfShortestPath(prev, '<'),
-                                addToImmutableSet(visited, position),
-                                '<'
-                        )
-                );
-            }
-            if (grid.get(y + 1).get(x) != '#') {
-                priorityQueue.add(
-                        new DijkstraState2(
-                                x,
-                                y + 1,
-                                (precedingKeypad == null) ? cost + 1 : cost + precedingKeypad.lengthOfShortestPath(prev, 'v'),
-                                addToImmutableSet(visited, position),
-                                'v'
-                        )
-                );
-            }
-            if (grid.get(y - 1).get(x) != '#') {
-                priorityQueue.add(
-                        new DijkstraState2(
-                                x,
-                                y - 1,
-                                (precedingKeypad == null) ? cost + 1 : cost + precedingKeypad.lengthOfShortestPath(prev, '^'),
-                                addToImmutableSet(visited, position),
-                                '^'
-                        )
-                );
-            }
+        List<List<Character>> paths = shortestPaths(start, end);
+        if (precedingKeypad == null) {
+            long result = paths.stream().map(List::size).min(Comparator.comparingInt(a -> a)).get();
+            cache.put(start + "," + end, result);
+            return result;
         }
-        return -1;
+        long result = Long.MAX_VALUE;
+        for (List<Character> path : paths) {
+            long pathLength = precedingKeypad.solve('A', path.get(0));
+            for (int i = 0; i < path.size() - 1; i++) {
+                pathLength += precedingKeypad.solve(path.get(i), path.get(i + 1));
+            }
+            result = Math.min(result, pathLength);
+        }
+        cache.put(start + "," + end, result);
+        return result;
     }
 
     private Position find(Character c) {
@@ -117,6 +70,53 @@ public class Keypad2 {
             }
         }
         return new Position(-1, -1);
+    }
+
+    public List<List<Character>> shortestPaths(Character start, Character end) {
+        if (shortestPathsCache.containsKey(start + "," + end)) {
+            return shortestPathsCache.get(start + "," + end);
+        }
+        Position current = find(start);
+        List<List<Character>> result = new ArrayList<>();
+        PriorityQueue<DijkstraStateWithPath> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(DijkstraStateWithPath::cost));
+        priorityQueue.add(new DijkstraStateWithPath(current.x(), current.y(), 0, new ArrayList<>(), new HashSet<>()));
+        int lowestCost = Integer.MAX_VALUE;
+        while (!priorityQueue.isEmpty()) {
+            DijkstraStateWithPath dijkstraState = priorityQueue.poll();
+            int x = dijkstraState.x();
+            int y = dijkstraState.y();
+            int cost = dijkstraState.cost();
+            List<Character> path = dijkstraState.path();
+            Set<Position> visited = dijkstraState.visited();
+            if (grid.get(y).get(x) == end && cost <= lowestCost) {
+                result.add(List.copyOf(addToImmutableList(path, 'A')));
+                lowestCost = cost;
+            }
+            Position position = new Position(x, y);
+            if (visited.contains(position)) {
+                continue;
+            }
+            if (grid.get(y).get(x + 1) != '#') {
+                priorityQueue.add(new DijkstraStateWithPath(x + 1, y, cost + 1, addToImmutableList(path, '>'), addToImmutableSet(visited, position)));
+            }
+            if (grid.get(y).get(x - 1) != '#') {
+                priorityQueue.add(new DijkstraStateWithPath(x - 1, y, cost + 1, addToImmutableList(path, '<'), addToImmutableSet(visited, position)));
+            }
+            if (grid.get(y + 1).get(x) != '#') {
+                priorityQueue.add(new DijkstraStateWithPath(x, y + 1, cost + 1, addToImmutableList(path, 'v'), addToImmutableSet(visited, position)));
+            }
+            if (grid.get(y - 1).get(x) != '#') {
+                priorityQueue.add(new DijkstraStateWithPath(x, y - 1, cost + 1, addToImmutableList(path, '^'), addToImmutableSet(visited, position)));
+            }
+        }
+        shortestPathsCache.put(start + "," + end, result);
+        return result;
+    }
+
+    private List<Character> addToImmutableList(List<Character> immutableList, Character item) {
+        List<Character> temp = new ArrayList<>(immutableList);
+        temp.add(item);
+        return List.copyOf(temp);
     }
 
     private Set<Position> addToImmutableSet(Set<Position> immutableSet, Position item) {

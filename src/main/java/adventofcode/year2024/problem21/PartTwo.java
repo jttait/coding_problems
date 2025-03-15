@@ -1,57 +1,32 @@
 package adventofcode.year2024.problem21;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PartTwo {
+    private final List<Keypad2> keypads;
 
-    public long lengthOfShortestPath(int numRobotControlledDirectionalKeypads) {
-        List<Keypad2> keypads = new ArrayList<>();
+    public PartTwo(int numRobotControlledKeypads) {
+        this.keypads = new ArrayList<>();
         keypads.add(new Keypad2(Grid.NUMERIC));
-        for (int i = 0; i < numRobotControlledDirectionalKeypads; i++) {
+        for (int i = 0; i < numRobotControlledKeypads; i++) {
             keypads.add(new Keypad2(Grid.DIRECTIONAL));
         }
-
         for (int i = 0; i < keypads.size() - 1; i++) {
-            keypads.get(i).setPrecedingKeypad(keypads.get(i+1));
+            keypads.get(i).setPrecedingKeypad(keypads.get(i + 1));
         }
+    }
 
+    public long solve(String s) {
+        char[] array = s.toCharArray();
+        List<Character> buttons = new ArrayList<>();
+        buttons.add('A');
+        for (char c : array) {
+            buttons.add(c);
+        }
         long result = 0;
-        long presses = 0;
-        presses += keypads.get(0).lengthOfShortestPath('A', '5');
-        presses += keypads.get(0).lengthOfShortestPath('5', '3');
-        presses += keypads.get(0).lengthOfShortestPath('3', '9');
-        presses += keypads.get(0).lengthOfShortestPath('9', 'A');
-        result += presses * 539;
-
-        presses = 0;
-        presses += keypads.get(0).lengthOfShortestPath('A', '9');
-        presses += keypads.get(0).lengthOfShortestPath('9', '6');
-        presses += keypads.get(0).lengthOfShortestPath('6', '4');
-        presses += keypads.get(0).lengthOfShortestPath('4', 'A');
-        result += presses * 964;
-
-        presses = 0;
-        presses += keypads.get(0).lengthOfShortestPath('A', '8');
-        presses += keypads.get(0).lengthOfShortestPath('8', '0');
-        presses += keypads.get(0).lengthOfShortestPath('0', '3');
-        presses += keypads.get(0).lengthOfShortestPath('3', 'A');
-        result += presses * 803;
-
-        presses = 0;
-        presses += keypads.get(0).lengthOfShortestPath('A', '1');
-        presses += keypads.get(0).lengthOfShortestPath('1', '4');
-        presses += keypads.get(0).lengthOfShortestPath('4', '9');
-        presses += keypads.get(0).lengthOfShortestPath('9', 'A');
-        result += presses * 149;
-
-        presses = 0;
-        presses += keypads.get(0).lengthOfShortestPath('A', '7');
-        presses += keypads.get(0).lengthOfShortestPath('7', '8');
-        presses += keypads.get(0).lengthOfShortestPath('8', '9');
-        presses += keypads.get(0).lengthOfShortestPath('9', 'A');
-        result += presses * 789;
-
+        for (int i = 0; i < buttons.size() - 1; i++) {
+            result += keypads.get(0).solve(buttons.get(i), buttons.get(i + 1));
+        }
         return result;
     }
 }
