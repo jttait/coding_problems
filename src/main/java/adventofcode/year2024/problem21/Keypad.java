@@ -20,7 +20,9 @@ public class Keypad {
             List.of('#', '#', '#', '#', '#')
     );
     private final List<List<Character>> grid;
-    private final Map<String, List<List<Character>>> cache;
+    private Keypad precedingKeypad;
+    private final Map<String, Long> cache;
+    private final Map<String, List<List<Character>>> shortestPathsCache;
 
     public Keypad(Grid grid) {
         if (grid == Grid.NUMERIC) {
@@ -28,12 +30,51 @@ public class Keypad {
         } else {
             this.grid = directionalGrid;
         }
+        this.precedingKeypad = null;
         this.cache = new HashMap<>();
+        this.shortestPathsCache = new HashMap<>();
+    }
+
+    public void setPrecedingKeypad(Keypad precedingKeypad) {
+        this.precedingKeypad = precedingKeypad;
+    }
+
+    public long solve(char start, char end) {
+        if (cache.containsKey(start + "," + end)) {
+            return cache.get(start + "," + end);
+        }
+        List<List<Character>> paths = shortestPaths(start, end);
+        if (precedingKeypad == null) {
+            long result = paths.stream().map(List::size).min(Comparator.comparingInt(a -> a)).get();
+            cache.put(start + "," + end, result);
+            return result;
+        }
+        long result = Long.MAX_VALUE;
+        for (List<Character> path : paths) {
+            long pathLength = precedingKeypad.solve('A', path.get(0));
+            for (int i = 0; i < path.size() - 1; i++) {
+                pathLength += precedingKeypad.solve(path.get(i), path.get(i + 1));
+            }
+            result = Math.min(result, pathLength);
+        }
+        cache.put(start + "," + end, result);
+        return result;
+    }
+
+    private Position find(Character c) {
+        for (int y = 0; y < grid.size(); y++) {
+            for (int x = 0; x < grid.get(0).size(); x++) {
+                if (grid.get(y).get(x) == c) {
+                    return new Position(x, y);
+                }
+            }
+        }
+        return new Position(-1, -1);
     }
 
     public List<List<Character>> shortestPaths(Character start, Character end) {
-        if (cache.containsKey(start + "," + end)) {
-            return cache.get(start + "," + end);
+        if (shortestPathsCache.containsKey(start + "," + end)) {
+            return shortestPathsCache.get(start + "," + end);
         }
         Position current = find(start);
         List<List<Character>> result = new ArrayList<>();
@@ -68,19 +109,8 @@ public class Keypad {
                 priorityQueue.add(new DijkstraStateWithPath(x, y - 1, cost + 1, addToImmutableList(path, '^'), addToImmutableSet(visited, position)));
             }
         }
-        cache.put(start + "," + end, result);
+        shortestPathsCache.put(start + "," + end, result);
         return result;
-    }
-
-    private Position find(Character c) {
-        for (int y = 0; y < grid.size(); y++) {
-            for (int x = 0; x < grid.get(0).size(); x++) {
-                if (grid.get(y).get(x) == c) {
-                    return new Position(x, y);
-                }
-            }
-        }
-        return new Position(-1, -1);
     }
 
     private List<Character> addToImmutableList(List<Character> immutableList, Character item) {
