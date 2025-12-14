@@ -109,11 +109,11 @@ class PartOneTest {
     }
 
     @Test
-    void shouldBe50ForAdventOfCodeInput() throws Exception {
+    void shouldBe4737096935ForAdventOfCodeInput() throws Exception {
         FileLoader fileLoader = new FileLoader();
         List<Tile> tiles = fileLoader.loadAndParse("adventofcode/year2025/problem09_input.txt");
         PartOne partOne = new PartOne(tiles);
         long result = partOne.calculateLargestRectangle();
-        Assertions.assertEquals(50, result);
+        Assertions.assertEquals(4737096935L, result);
     }
 }
