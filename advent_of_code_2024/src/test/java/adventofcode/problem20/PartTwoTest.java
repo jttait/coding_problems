@@ -43,7 +43,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe84forAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem20_example.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem20_example.txt");
         PartTwo partTwo = new PartTwo(grid);
         int result = partTwo.findSavings(50);
         Assertions.assertEquals(285, result);
@@ -51,7 +51,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe1008040forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem20_input.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem20_input.txt");
         PartTwo partTwo = new PartTwo(grid);
         int result = partTwo.findSavings(100);
         Assertions.assertEquals(1008040, result);

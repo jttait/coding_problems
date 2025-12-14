@@ -45,18 +45,18 @@ class PartOneTest {
 
     @Test
     void shouldBe6possibleDesignsForAdventOfCodeExample() throws Exception {
-        List<String> availableTowels = testUtils.loadAvailableTowelsFromFile("adventofcode/year2024/problem19_example.txt");
+        List<String> availableTowels = testUtils.loadAvailableTowelsFromFile("problem19_example.txt");
         PartOne partOne = new PartOne(availableTowels);
-        List<String> designs = testUtils.loadDesignsFromFile("adventofcode/year2024/problem19_example.txt");
+        List<String> designs = testUtils.loadDesignsFromFile("problem19_example.txt");
         int result = partOne.countPossibleDesigns(designs);
         Assertions.assertEquals(6, result);
     }
 
     @Test
     void shouldBe336possibleDesignsForAdventOfCodeInput() throws Exception {
-        List<String> availableTowels = testUtils.loadAvailableTowelsFromFile("adventofcode/year2024/problem19_input.txt");
+        List<String> availableTowels = testUtils.loadAvailableTowelsFromFile("problem19_input.txt");
         PartOne partOne = new PartOne(availableTowels);
-        List<String> designs = testUtils.loadDesignsFromFile("adventofcode/year2024/problem19_input.txt");
+        List<String> designs = testUtils.loadDesignsFromFile("problem19_input.txt");
         int result = partOne.countPossibleDesigns(designs);
         Assertions.assertEquals(336, result);
     }

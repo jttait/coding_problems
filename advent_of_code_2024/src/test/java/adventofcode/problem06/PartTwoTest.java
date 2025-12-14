@@ -38,14 +38,14 @@ class PartTwoTest {
 
     @Test
     void shouldBe6forAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem6_example.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem6_example.txt");
         int result = partTwo.possibleObstacles(grid);
         Assertions.assertEquals(6, result);
     }
 
     @Test
     void shouldBe6forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem6_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem6_input.txt");
         int result = partTwo.possibleObstacles(grid);
         Assertions.assertEquals(1939, result);
     }

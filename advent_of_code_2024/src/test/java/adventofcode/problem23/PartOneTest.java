@@ -28,7 +28,7 @@ class PartOneTest {
 
     @Test
     void shouldBe12partiesForAdventOfCodeExample() throws Exception {
-        Set<Connection> connections = testUtils.loadFromFile("adventofcode/year2024/problem23_example.txt");
+        Set<Connection> connections = testUtils.loadFromFile("problem23_example.txt");
         PartOne partOne = new PartOne(connections);
         Set<Set<String>> parties = partOne.getParties();
         Assertions.assertEquals(12, parties.size());
@@ -36,7 +36,7 @@ class PartOneTest {
 
     @Test
     void shouldBe7partiesContainingComputerStartingWithTforAdventOfCodeExample() throws Exception {
-        Set<Connection> connections = testUtils.loadFromFile("adventofcode/year2024/problem23_example.txt");
+        Set<Connection> connections = testUtils.loadFromFile("problem23_example.txt");
         PartOne partOne = new PartOne(connections);
         Set<Set<String>> parties = partOne.getParties();
         int countOfPartiesContainingComputerStartingWithT = 0;
@@ -50,7 +50,7 @@ class PartOneTest {
 
     @Test
     void shouldBe1156partiesContainingComputerStartingWithTforAdventOfCodeInput() throws Exception {
-        Set<Connection> connections = testUtils.loadFromFile("adventofcode/year2024/problem23_input.txt");
+        Set<Connection> connections = testUtils.loadFromFile("problem23_input.txt");
         PartOne partOne = new PartOne(connections);
         Set<Set<String>> parties = partOne.getParties();
         int countOfPartiesContainingComputerStartingWithT = 0;

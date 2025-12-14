@@ -44,7 +44,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe76358113886726forAdventOfCodeInput() throws Exception {
-        List<List<Integer>> input = testUtils.loadFile("adventofcode/year2024/problem13_input.txt");
+        List<List<Integer>> input = testUtils.loadFile("problem13_input.txt");
         long result = 0;
         for (List<Integer> machineProperties : input) {
             PartTwo partTwo = new PartTwo(

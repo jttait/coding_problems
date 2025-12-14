@@ -72,7 +72,7 @@ class PartOneTest {
 
     @Test
     void shouldBe14691757043forAdventOfCodeInput() throws Exception {
-        List<Integer> startingNumbers = testUtils.loadFromFile("adventofcode/year2024/problem22_input.txt");
+        List<Integer> startingNumbers = testUtils.loadFromFile("problem22_input.txt");
         long result = 0;
         for (int startingNumber : startingNumbers) {
             result += partOne.getNthSecretNumber(startingNumber, 2000);

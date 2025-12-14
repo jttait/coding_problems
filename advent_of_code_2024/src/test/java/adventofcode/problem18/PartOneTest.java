@@ -53,7 +53,7 @@ class PartOneTest {
 
     @Test
     void shouldBe22forAdventOfCodeExample() throws Exception {
-        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_example.txt");
+        List<Position> fallingBytes = testUtils.loadFile("problem18_example.txt");
         PartOne partOne = new PartOne(7, 7, fallingBytes);
         partOne.simulate(12);
         int result = partOne.findShortestPath();
@@ -62,7 +62,7 @@ class PartOneTest {
 
     @Test
     void shouldBe310forAdventOfCodeInput() throws Exception {
-        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_input.txt");
+        List<Position> fallingBytes = testUtils.loadFile("problem18_input.txt");
         PartOne partOne = new PartOne(71, 71, fallingBytes);
         partOne.simulate(1024);
         int result = partOne.findShortestPath();

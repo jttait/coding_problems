@@ -188,9 +188,9 @@ class PartTwoTest {
 
     @Test
     void shouldBe9021forLargerAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFileForPartTwo("adventofcode/year2024/problem15_example.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFileForPartTwo("problem15_example.txt");
         PartTwo partTwo = new PartTwo(grid);
-        List<Command> commands = testUtils.loadCommandsFromFile("adventofcode/year2024/problem15_example.txt");
+        List<Command> commands = testUtils.loadCommandsFromFile("problem15_example.txt");
         partTwo.simulate(commands);
         int result = partTwo.sumBoxGpsCoordinates(grid);
         Assertions.assertEquals(9021, result);
@@ -198,9 +198,9 @@ class PartTwoTest {
 
     @Test
     void shouldBe1495455forLargerAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFileForPartTwo("adventofcode/year2024/problem15_input.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFileForPartTwo("problem15_input.txt");
         PartTwo partTwo = new PartTwo(grid);
-        List<Command> commands = testUtils.loadCommandsFromFile("adventofcode/year2024/problem15_input.txt");
+        List<Command> commands = testUtils.loadCommandsFromFile("problem15_input.txt");
         partTwo.simulate(commands);
         int result = partTwo.sumBoxGpsCoordinates(grid);
         Assertions.assertEquals(1495455, result);

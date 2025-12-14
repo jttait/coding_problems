@@ -40,7 +40,7 @@ class PartOneTest {
 
     @Test
     void shouldBe84forAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem20_example.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem20_example.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findShortestPath();
         Assertions.assertEquals(84, result);
@@ -48,7 +48,7 @@ class PartOneTest {
 
     @Test
     void shouldBe0cheatsForAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem20_example.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem20_example.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findNumberOfCheatsThatSave100picoseconds();
         Assertions.assertEquals(0, result);
@@ -56,7 +56,7 @@ class PartOneTest {
 
     @Test
     void shouldBe1445cheatsForAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem20_input.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem20_input.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findNumberOfCheatsThatSave100picoseconds();
         Assertions.assertEquals(1445, result);

@@ -16,8 +16,8 @@ class PartOneTest {
 
     @Test
     void shouldBe4forFirstAdventOfCodeExample() throws Exception {
-        Map<String, Wire> wires = testUtils.loadWiresFromFile("adventofcode/year2024/problem24_part1_example1.txt");
-        List<Gate> gates = testUtils.loadGatesFromFile("adventofcode/year2024/problem24_part1_example1.txt", wires);
+        Map<String, Wire> wires = testUtils.loadWiresFromFile("problem24_part1_example1.txt");
+        List<Gate> gates = testUtils.loadGatesFromFile("problem24_part1_example1.txt", wires);
         PartOne partOne = new PartOne(gates);
         partOne.simulate();
         String s = testUtils.convertWiresToBinaryString(wires);
@@ -27,8 +27,8 @@ class PartOneTest {
 
     @Test
     void shouldBe2024forSecondAdventOfCodeExample() throws Exception {
-        Map<String, Wire> wires = testUtils.loadWiresFromFile("adventofcode/year2024/problem24_part1_example2.txt");
-        List<Gate> gates = testUtils.loadGatesFromFile("adventofcode/year2024/problem24_part1_example2.txt", wires);
+        Map<String, Wire> wires = testUtils.loadWiresFromFile("problem24_part1_example2.txt");
+        List<Gate> gates = testUtils.loadGatesFromFile("problem24_part1_example2.txt", wires);
         PartOne partOne = new PartOne(gates);
         partOne.simulate();
         String s = testUtils.convertWiresToBinaryString(wires);
@@ -38,8 +38,8 @@ class PartOneTest {
 
     @Test
     void shouldBe58740594706150forAdventOfCodeInput() throws Exception {
-        Map<String, Wire> wires = testUtils.loadWiresFromFile("adventofcode/year2024/problem24_input.txt");
-        List<Gate> gates = testUtils.loadGatesFromFile("adventofcode/year2024/problem24_input.txt", wires);
+        Map<String, Wire> wires = testUtils.loadWiresFromFile("problem24_input.txt");
+        List<Gate> gates = testUtils.loadGatesFromFile("problem24_input.txt", wires);
         PartOne partOne = new PartOne(gates);
         partOne.simulate();
         String s = testUtils.convertWiresToBinaryString(wires);

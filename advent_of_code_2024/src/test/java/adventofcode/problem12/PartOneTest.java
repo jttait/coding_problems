@@ -77,7 +77,7 @@ class PartOneTest {
 
     @Test
     void shouldBe1473276forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem12_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem12_input.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.calculateFencingCost();
         Assertions.assertEquals(1473276, result);

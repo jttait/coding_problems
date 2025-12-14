@@ -51,7 +51,7 @@ class PartOneTest {
 
     @Test
     void shouldBe36758forAdventOfCodeInput() throws Exception {
-        List<List<Integer>> input = testUtils.loadFile("adventofcode/year2024/problem13_input.txt");
+        List<List<Integer>> input = testUtils.loadFile("problem13_input.txt");
         int result = 0;
         for (List<Integer> machineProperties : input) {
             PartOne partOne = new PartOne(

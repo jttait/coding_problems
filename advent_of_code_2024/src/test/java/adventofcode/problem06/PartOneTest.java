@@ -71,7 +71,7 @@ class PartOneTest {
 
     @Test
     void shouldBe5561forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem6_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem6_input.txt");
         int result = partOne.distinctPositions(grid);
         Assertions.assertEquals(5551, result);
     }

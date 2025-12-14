@@ -22,7 +22,7 @@ class PartTwoTest {
         if (depth >= 3) {
             return;
         }
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("adventofcode/year2024/problem24_input_fixed.txt");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("problem24_input_fixed.txt");
         InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(streamReader);
         for (String line; (line = reader.readLine()) != null;) {

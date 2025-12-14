@@ -67,7 +67,7 @@ class PartOneTest {
 
     @Test
     void shouldBe7036forFirstAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem16_example1.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem16_example1.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findLowestScore();
         Assertions.assertEquals(7036, result);
@@ -75,7 +75,7 @@ class PartOneTest {
 
     @Test
     void shouldBe11048forSecondAdventOfCodeExample() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem16_example2.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem16_example2.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findLowestScore();
         Assertions.assertEquals(11048, result);
@@ -83,7 +83,7 @@ class PartOneTest {
 
     @Test
     void shouldBe147628forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadGridFromFile("adventofcode/year2024/problem16_input.txt");
+        List<List<Character>> grid = testUtils.loadGridFromFile("problem16_input.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.findLowestScore();
         Assertions.assertEquals(147628, result);

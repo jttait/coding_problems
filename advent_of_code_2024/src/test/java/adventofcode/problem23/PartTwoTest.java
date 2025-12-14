@@ -29,7 +29,7 @@ class PartTwoTest {
 
     @Test
     void shouldBePartyWith4interconnectedComputersForAdventOfCodeExample() throws Exception {
-        Set<Connection> connections = testUtils.loadFromFile("adventofcode/year2024/problem23_example.txt");
+        Set<Connection> connections = testUtils.loadFromFile("problem23_example.txt");
         PartTwo partTwo = new PartTwo(connections);
         Set<String> largestParty = partTwo.findLargestFullyInterconnectedParty();
         List<String> sorted = sortComputerNamesAlphabetically(largestParty);
@@ -39,7 +39,7 @@ class PartTwoTest {
 
     @Test
     void shouldBePartyWith4interconnectedComputersForAdventOfCodeInput() throws Exception {
-        Set<Connection> connections = testUtils.loadFromFile("adventofcode/year2024/problem23_input.txt");
+        Set<Connection> connections = testUtils.loadFromFile("problem23_input.txt");
         PartTwo partTwo = new PartTwo(connections);
         Set<String> largestParty = partTwo.findLargestFullyInterconnectedParty();
         List<String> sorted = sortComputerNamesAlphabetically(largestParty);

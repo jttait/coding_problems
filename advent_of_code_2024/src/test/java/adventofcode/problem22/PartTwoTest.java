@@ -25,7 +25,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe1831forAdventOfCodeInput() throws Exception {
-        List<Integer> startingNumbers = testUtils.loadFromFile("adventofcode/year2024/problem22_input.txt");
+        List<Integer> startingNumbers = testUtils.loadFromFile("problem22_input.txt");
         long result = partTwo.maximiseProfit(startingNumbers);
         Assertions.assertEquals(1831L, result); // 1881 is too high
     }

@@ -90,7 +90,7 @@ class PartOneTest {
 
     @Test
     void shouldBe229839456forAdventOfCodeInput() throws Exception {
-        List<Robot> robots = testUtils.loadFile("adventofcode/year2024/problem14_input.txt");
+        List<Robot> robots = testUtils.loadFile("problem14_input.txt");
         PartOne partOne = new PartOne(robots, 101, 103);
         int safetyFactor = partOne.calculateSafetyFactor(100);
         Assertions.assertEquals(229839456, safetyFactor);

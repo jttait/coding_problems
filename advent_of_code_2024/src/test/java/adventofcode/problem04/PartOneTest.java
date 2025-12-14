@@ -138,7 +138,7 @@ class PartOneTest {
 
     @Test
     void shouldBeXforAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem4.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem4.txt");
         int result = partOne.findXmas(grid);
         Assertions.assertEquals(2560, result);
     }

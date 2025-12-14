@@ -31,7 +31,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe6and1forAdventOfCodeExample() throws Exception {
-        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_example.txt");
+        List<Position> fallingBytes = testUtils.loadFile("problem18_example.txt");
         PartTwo partTwo = new PartTwo(7, 7, fallingBytes);
         Position result = partTwo.findFirstBlockingCell();
         Position expected = new Position(1, 6);
@@ -41,7 +41,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe6and1forAdventOfCodeInput() throws Exception {
-        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_input.txt");
+        List<Position> fallingBytes = testUtils.loadFile("problem18_input.txt");
         PartTwo partTwo = new PartTwo(71, 71, fallingBytes);
         Position result = partTwo.findFirstBlockingCell();
         Position expected = new Position(46, 16);

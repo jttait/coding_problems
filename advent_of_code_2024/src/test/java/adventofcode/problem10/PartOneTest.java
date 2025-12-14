@@ -113,7 +113,7 @@ class PartOneTest {
 
     @Test
     void shouldBe587forAdventOfCodeInput() throws Exception {
-        List<List<Integer>> grid = testUtils.loadFile("adventofcode/year2024/problem10_input.txt");
+        List<List<Integer>> grid = testUtils.loadFile("problem10_input.txt");
         PartOne partOne = new PartOne(grid);
         int result = partOne.sumTrailheadScores();
         Assertions.assertEquals(587, result);

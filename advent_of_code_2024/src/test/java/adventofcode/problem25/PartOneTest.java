@@ -50,8 +50,8 @@ class PartOneTest {
 
     @Test
     void shouldBe3forReadingAdventOfCodeExampleFromFile() throws Exception {
-        List<List<Integer>> locks = testUtils.loadLocksFromFile("adventofcode/year2024/problem25_example.txt");
-        List<List<Integer>> keys = testUtils.loadKeysFromFile("adventofcode/year2024/problem25_example.txt");
+        List<List<Integer>> locks = testUtils.loadLocksFromFile("problem25_example.txt");
+        List<List<Integer>> keys = testUtils.loadKeysFromFile("problem25_example.txt");
         PartOne partOne = new PartOne(locks, keys);
         int result = partOne.countFittingLocksAndKeys();
         Assertions.assertEquals(3, result);
@@ -59,8 +59,8 @@ class PartOneTest {
 
     @Test
     void shouldBe3057forAdventOfCodeInput() throws Exception {
-        List<List<Integer>> locks = testUtils.loadLocksFromFile("adventofcode/year2024/problem25_input.txt");
-        List<List<Integer>> keys = testUtils.loadKeysFromFile("adventofcode/year2024/problem25_input.txt");
+        List<List<Integer>> locks = testUtils.loadLocksFromFile("problem25_input.txt");
+        List<List<Integer>> keys = testUtils.loadKeysFromFile("problem25_input.txt");
         PartOne partOne = new PartOne(locks, keys);
         int result = partOne.countFittingLocksAndKeys();
         Assertions.assertEquals(3057, result);

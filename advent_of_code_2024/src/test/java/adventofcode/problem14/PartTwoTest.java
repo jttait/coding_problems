@@ -18,7 +18,7 @@ class PartTwoTest {
     @Disabled
     @Test
     void shouldBe229839456forAdventOfCodeInput() throws Exception {
-        List<Robot> robots = testUtils.loadFile("adventofcode/year2024/problem14_input.txt");
+        List<Robot> robots = testUtils.loadFile("problem14_input.txt");
         PartTwo partTwo = new PartTwo(robots, 101, 103);
         partTwo.calculateIterationsForEasterEgg();
     }

@@ -62,7 +62,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe19457120forAdventOfCodeProblem() throws Exception {
-        List<List<Integer>> lists = loadFileToListOfStrings("adventofcode/year2024/problem1.txt");
+        List<List<Integer>> lists = loadFileToListOfStrings("problem1.txt");
         List<Integer> left = lists.get(0);
         List<Integer> right = lists.get(1);
         int result = this.partTwo.similarityScore(left, right);

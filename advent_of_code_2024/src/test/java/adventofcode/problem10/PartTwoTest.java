@@ -84,7 +84,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe1340forAdventOfCodeInput() throws Exception {
-        List<List<Integer>> grid = testUtils.loadFile("adventofcode/year2024/problem10_input.txt");
+        List<List<Integer>> grid = testUtils.loadFile("problem10_input.txt");
         PartTwo partTwo = new PartTwo(grid);
         int result = partTwo.sumTrailheadScores();
         Assertions.assertEquals(1340, result);

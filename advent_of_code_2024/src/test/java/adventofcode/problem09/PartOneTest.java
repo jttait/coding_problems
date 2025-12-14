@@ -51,7 +51,7 @@ class PartOneTest {
 
     @Test
     void shouldBe6288599492129forAdventOfCodeInput() throws Exception {
-        String diskMap = testUtils.loadFile("adventofcode/year2024/problem9_input.txt");
+        String diskMap = testUtils.loadFile("problem9_input.txt");
         long checksum = partOne.compact(diskMap);
         Assertions.assertEquals(6288599492129L, checksum);
     }

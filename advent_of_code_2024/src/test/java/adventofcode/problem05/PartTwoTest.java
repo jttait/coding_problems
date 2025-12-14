@@ -30,7 +30,7 @@ public class PartTwoTest {
 
     @Test
     void shouldBe143forAdventOfCodeExample() throws Exception {
-        TestInput testInput = testUtils.loadFile("adventofcode/year2024/problem5_example.txt");
+        TestInput testInput = testUtils.loadFile("problem5_example.txt");
         int result = 0;
         for (List<Integer> section : testInput.sections()) {
             result += partTwo.sortAndGetMiddleValueIfNotValid(testInput.pageOrderings(), section);
@@ -40,7 +40,7 @@ public class PartTwoTest {
 
     @Test
     void shouldBe143forAdventOfCodeInput() throws Exception {
-        TestInput testInput = testUtils.loadFile("adventofcode/year2024/problem5_input.txt");
+        TestInput testInput = testUtils.loadFile("problem5_input.txt");
         int result = 0;
         for (List<Integer> section : testInput.sections()) {
             result += partTwo.sortAndGetMiddleValueIfNotValid(testInput.pageOrderings(), section);
