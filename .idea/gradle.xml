@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/advent_of_code_2025" />
           </set>
         </option>
       </GradleProjectSettings>
