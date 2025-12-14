@@ -1,0 +1,51 @@
+package adventofcode.problem18;
+
+import adventofcode.common.Position;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+class PartTwoTest {
+    private TestUtils testUtils;
+
+    @BeforeEach
+    void setUp() {
+        this.testUtils = new TestUtils();
+    }
+
+    @Test
+    void shouldBeThirdFallingByteFor3x3grid() {
+        List<Position> fallingBytes = List.of(
+                new Position(0, 1),
+                new Position(1, 1),
+                new Position(2, 1)
+        );
+        PartTwo partTwo = new PartTwo(3, 3, fallingBytes);
+        Position result = partTwo.findFirstBlockingCell();
+        Position expected = new Position(2, 1);
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
+    }
+
+    @Test
+    void shouldBe6and1forAdventOfCodeExample() throws Exception {
+        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_example.txt");
+        PartTwo partTwo = new PartTwo(7, 7, fallingBytes);
+        Position result = partTwo.findFirstBlockingCell();
+        Position expected = new Position(1, 6);
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
+    }
+
+    @Test
+    void shouldBe6and1forAdventOfCodeInput() throws Exception {
+        List<Position> fallingBytes = testUtils.loadFile("adventofcode/year2024/problem18_input.txt");
+        PartTwo partTwo = new PartTwo(71, 71, fallingBytes);
+        Position result = partTwo.findFirstBlockingCell();
+        Position expected = new Position(46, 16);
+        Assertions.assertEquals(expected.x(), result.x());
+        Assertions.assertEquals(expected.y(), result.y());
+    }
+}
