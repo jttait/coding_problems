@@ -18,7 +18,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe3263827forAdventOfCodeExample() throws Exception {
-        List<Problem> problems = fileLoader.loadProblemsFromFileForPartTwo("adventofcode/year2025/problem06_example.txt");
+        List<Problem> problems = fileLoader.loadProblemsFromFileForPartTwo("problem06_example.txt");
         long result = 0;
         for (Problem problem : problems) {
             result += partOne.calculate(problem);
@@ -28,7 +28,7 @@ class PartTwoTest {
 
     @Test
     void shouldBe7858808482092forAdventOfCodeInput() throws Exception {
-        List<Problem> problems = fileLoader.loadProblemsFromFileForPartTwo("adventofcode/year2025/problem06_input.txt");
+        List<Problem> problems = fileLoader.loadProblemsFromFileForPartTwo("problem06_input.txt");
         long result = 0;
         for (Problem problem : problems) {
             result += partOne.calculate(problem);
