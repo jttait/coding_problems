@@ -121,7 +121,7 @@ class PartOneTest {
 
     @Test
     void shouldBe273forAdventOfCodeInput() throws Exception {
-        List<List<Character>> grid = testUtils.loadFile("adventofcode/year2024/problem8_input.txt");
+        List<List<Character>> grid = testUtils.loadFile("problem8_input.txt");
         int result = partOne.countAntiNodes(grid);
         Assertions.assertEquals(273, result);
     }
