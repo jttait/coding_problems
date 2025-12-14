@@ -1,10 +1,10 @@
-package tesco.graduate;
+package tesco;
 
 import java.util.List;
 
-import static tesco.graduate.Question1.sum;
+import static tesco.GraduateQuestion1.sum;
 
-public class Question2 {
+public class GraduateQuestion2 {
     public static int average(List<Integer> list) {
         return sum(list) / list.size();
     }

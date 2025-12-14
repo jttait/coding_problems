@@ -1,13 +1,13 @@
-package tesco.graduate;
+package tesco;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static tesco.graduate.Question4.lowestMissing;
+import static tesco.GraduateQuestion4.lowestMissing;
 
-class Question4Test {
+class GraduateQuestion4Test {
     @Test
     void shouldBe1forListOf2and3() {
         List<Integer> list = List.of(2, 3);

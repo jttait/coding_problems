@@ -1,8 +1,8 @@
-package tesco.graduate;
+package tesco;
 
 import java.util.List;
 
-public class Question5 {
+public class GraduateQuestion5 {
     public static int highestPrime(List<Integer> list) {
         int result = 0;
         for (int item : list) {

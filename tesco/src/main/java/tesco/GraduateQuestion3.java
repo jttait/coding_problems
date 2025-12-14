@@ -1,10 +1,10 @@
-package tesco.graduate;
+package tesco;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Question3 {
+public class GraduateQuestion3 {
     public static int mode(List<Integer> list) {
         Map<Integer, Integer> occurrences = new HashMap<>();
         for (int item : list) {

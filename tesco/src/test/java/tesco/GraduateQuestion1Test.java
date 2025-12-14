@@ -1,13 +1,14 @@
-package tesco.graduate;
+package tesco;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static tesco.graduate.Question1.sum;
+import static tesco.GraduateQuestion1.sum;
 
-class Question1Test {
+
+class GraduateQuestion1Test {
     @Test
     void shouldBe1forListOf1() {
         List<Integer> list = List.of(1);

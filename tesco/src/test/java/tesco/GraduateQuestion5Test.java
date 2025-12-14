@@ -1,14 +1,14 @@
-package tesco.graduate;
+package tesco;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static tesco.graduate.Question5.highestPrime;
+import static tesco.GraduateQuestion5.highestPrime;
 
 
-class Question5Test {
+class GraduateQuestion5Test {
     @Test
     void shouldBe1forListOf1() {
         List<Integer> list = List.of(1);
