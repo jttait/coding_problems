@@ -1,6 +1,6 @@
 package adventofcode2025.problem11;
 
-import adventofcode2025.problem10.Machine;
+import adventofcode2025.problem12.Tree;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
