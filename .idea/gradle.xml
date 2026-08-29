@@ -5,9 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="temurin-25" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/advent_of_code_2023" />
             <option value="$PROJECT_DIR$/advent_of_code_2024" />
             <option value="$PROJECT_DIR$/advent_of_code_2025" />
             <option value="$PROJECT_DIR$/project_euler" />
