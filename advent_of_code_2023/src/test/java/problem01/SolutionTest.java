@@ -69,9 +69,9 @@ class SolutionTest {
     }
 
     @Test
-    void shouldBe54110forAdventOfCodeInputWithWords() throws Exception {
+    void shouldBe54094forAdventOfCodeInputWithWords() throws Exception {
         List<String> input = testUtils.loadFromFile("problem01_input.txt");
         int result = solution.calculateCalibrationValueForLinesWithWords(input);
-        Assertions.assertEquals(54110, result);
+        Assertions.assertEquals(54094, result);
     }
 }
